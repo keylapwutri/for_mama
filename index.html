@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f8e7e4">
+<title>Happy Birthday, Mama ♡</title>
+<style>
+:root{
+  --cream:#fffaf6;--blush:#f8e7e4;--pink:#e8b9ba;--rose:#bd7d83;
+  --deep:#754d52;--gold:#c8a56a;--ink:#604b4b;--white:#fffdfb;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:Georgia,"Times New Roman",serif}
+button{font:inherit}
+.page{min-height:100svh;position:relative;overflow:hidden}
+.hidden{display:none!important}
+.cover{
+ display:flex;align-items:center;justify-content:center;text-align:center;padding:38px 20px;
+ background:radial-gradient(ellipse at 5% 5%,#f5d9d8 0,transparent 42%),
+ radial-gradient(ellipse at 100% 95%,#f2e3cb 0,transparent 38%),var(--cream)
+}
+.cover:before,.cover:after{content:"✧";position:absolute;color:var(--gold);font-size:34px;opacity:.75}
+.cover:before{top:7%;left:8%}.cover:after{bottom:7%;right:9%}
+.cover-inner{width:min(100%,570px);animation:rise 1s ease both}
+.eyebrow,.section-label{font:10px/1.6 Arial,sans-serif;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+h1{font-size:clamp(40px,8vw,68px);line-height:1.04;font-weight:normal;color:var(--deep);margin:17px 0}
+.subtitle{font-style:italic;color:#a4777a;font-size:18px;margin:0 0 23px}
+.photo-frame{width:min(65vw,270px);aspect-ratio:4/5;margin:0 auto 23px;padding:8px;background:white;border:1px solid #e8d6bd;box-shadow:0 14px 36px #80585a20;transform:rotate(-1deg)}
+.photo-frame img{display:block;width:100%;height:100%;object-fit:cover;background:#f4e4df}
+.date{font:11px Arial,sans-serif;letter-spacing:.2em;color:#9a7971;margin:17px 0 27px}
+.btn{border:0;background:var(--deep);color:white;padding:14px 24px;border-radius:999px;cursor:pointer;box-shadow:0 8px 20px #754b5024;transition:transform .2s,background .2s}
+.btn:hover{transform:translateY(-2px);background:#916269}
+.btn:focus-visible{outline:3px solid var(--gold);outline-offset:4px}
+.hint{font:11px Arial,sans-serif;color:#a58a83;margin-top:13px}
+.celebration{padding:65px 20px 12px;text-align:center;background:radial-gradient(ellipse at 50% 0,#f7e4df 0,transparent 50%),#fffaf6}
+h2{font-size:clamp(30px,6vw,46px);font-weight:normal;color:var(--deep);margin:13px 0}
+.cake-stage{min-height:385px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
+.cake{position:relative;width:190px;height:145px;margin-top:35px;animation:bob 3s ease-in-out infinite}
+.cake-body{position:absolute;bottom:0;left:13px;width:164px;height:90px;border-radius:8px 8px 22px 22px;background:repeating-linear-gradient(90deg,#efb6b7 0 23px,#f8d9d1 23px 46px);border:2px solid #d99a9b}
+.cake-top{position:absolute;bottom:75px;left:5px;width:180px;height:42px;border-radius:50%;background:#f6c6c4;border:2px solid #d99a9b;z-index:2}
+.icing{position:absolute;z-index:3;left:13px;bottom:61px;width:164px;height:32px;border-radius:50%;background:#fff0e5;border:2px solid #e9b8b2}
+.candle{position:absolute;z-index:5;bottom:108px;left:88px;width:14px;height:43px;background:repeating-linear-gradient(135deg,#fff 0 6px,#d78b91 6px 12px);border-radius:3px}
+.flame{position:absolute;width:17px;height:25px;left:-2px;top:-25px;border-radius:70% 30% 65% 35%;background:radial-gradient(circle at 55% 65%,#fff6b0 0 18%,#ffc75d 35%,#f08a4b 72%);transform:rotate(8deg);transform-origin:bottom;filter:drop-shadow(0 0 8px #ffbf5c);animation:flicker .5s infinite alternate}
+.smoke{display:none;position:absolute;left:1px;top:-31px;color:#b9aaa5;font:22px Arial,sans-serif;animation:smoke 1.5s ease-out forwards}
+.cake.out .flame{display:none}.cake.out .smoke{display:block}
+.family{position:absolute;bottom:3px;left:calc(50% + 105px);transform:translateX(-50%);display:flex;align-items:flex-end;gap:0;filter:drop-shadow(0 5px 3px #7c505018)}
+.mom,.child{position:relative;font-size:72px;line-height:1;animation:chibiBob 1.3s ease-in-out infinite}
+.child{font-size:55px;margin-left:-8px;animation-delay:.2s}
+.puff{display:none;position:absolute;top:7px;left:-22px;font:14px Arial,sans-serif;color:#bc9291;white-space:nowrap}
+.family.blowing .mom{animation:blow .8s ease-in-out 2}.family.blowing .puff{display:block}
+.instructions{font:13px Arial,sans-serif;color:#a27e7b;margin:14px 0 27px;min-height:18px}
+.letter{max-width:760px;margin:0 auto;padding:70px 22px 95px}
+.letter-card{background:var(--white);border:1px solid #eadcc9;padding:clamp(25px,6vw,54px);box-shadow:0 16px 50px #8b62620d;position:relative}
+.letter-card:before{content:"♡";position:absolute;top:15px;right:22px;color:#d7a4a0;font-size:26px}
+.letter h2{text-align:center;margin-bottom:26px}
+.letter p{font-size:17px;line-height:1.95;white-space:pre-line}
+.signoff{text-align:right;font-style:italic;color:#a16d73;margin-top:28px}
+.footer{text-align:center;padding:25px;font:10px Arial,sans-serif;letter-spacing:.16em;color:#b89c8f}
+.petals{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.petal{position:absolute;top:-30px;color:#dca8a5;opacity:.6;animation:fall linear infinite}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+@keyframes chibiBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes flicker{from{transform:rotate(-6deg) scale(.95)}to{transform:rotate(7deg) scale(1.05)}}
+@keyframes blow{0%,100%{transform:translateX(0) rotate(0)}50%{transform:translateX(-8px) rotate(-8deg)}}
+@keyframes smoke{0%{opacity:.8;transform:translateY(0) scale(.7)}100%{opacity:0;transform:translateY(-28px) scale(1.5)}}
+@keyframes fall{to{transform:translateY(110vh) rotate(300deg)}}
+@media(max-width:480px){.family{left:calc(50% + 98px)}.mom{font-size:62px}.child{font-size:47px}.cake-stage{min-height:350px}.letter p{font-size:16px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<section class="page cover" id="cover">
+ <div class="cover-inner">
+  <div class="eyebrow">A little celebration for someone special</div>
+  <h1>Happy Birthday,<br>Mama ♡</h1>
+  <p class="subtitle">For the heart of our home</p>
+  <div class="photo-frame">
+   <!-- Simpan foto Mama di folder yang sama dengan file HTML dan beri nama mama.jpg -->
+   <img src="mama.jpg" alt="Foto Mama" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=&quot;display:grid;place-items:center;height:100%;color:#a77b7b;font:13px Arial;text-align:center;padding:20px&quot;>Ganti dengan foto Mama<br>bernama <b>mama.jpg</b></div>'">
+  </div>
+  <div class="date" id="birthdayDate">FRIDAY · 16 OCTOBER 2026</div>
+  <button class="btn" id="startBtn">Buka kejutan untuk Mama ♡</button>
+  <div class="hint">Dibuat dengan penuh cinta</div>
+ </div>
+</section>
+
+<section class="page celebration hidden" id="celebration">
+ <div class="petals" id="petals"></div>
+ <div class="section-label">Make a wish, Mama</div>
+ <h2>One little wish for you</h2>
+ <div class="cake-stage">
+  <div class="cake" id="cake" role="img" aria-label="Kue ulang tahun dengan lilin menyala">
+   <div class="cake-body"></div><div class="icing"></div><div class="cake-top"></div>
+   <div class="candle"><div class="flame"></div><div class="smoke">〰</div></div>
+  </div>
+  <div class="family" id="family" role="img" aria-label="Ilustrasi ibu dan anak chibi">
+   <span class="mom">👩🏻‍🦰<span class="puff">fuu~ ♡</span></span><span class="child">👧🏻</span>
+  </div>
+ </div>
+ <p class="instructions" id="instruction">Tunggu sebentar ya, Mama ♡</p>
+ <button class="btn hidden" id="letterBtn">Baca surat kecilku ↓</button>
+</section>
+
+<section class="letter hidden" id="letter">
+ <div class="letter-card">
+  <div class="section-label" style="text-align:center">From my heart to yours</div>
+  <h2>Untuk Mama tersayang ♡</h2>
+  <p>Selamat ulang tahun, Mama tersayang. ♡
+
+Terima kasih sudah selalu menyayangiku, menjaga aku, dan berusaha memberikan yang terbaik untukku. Maaf ya, Ma, kalau aku masih sering bikin Mama kesel dan masih suka marah marah atau kadang belum bisa menunjukkan rasa sayangku dengan baik.
+
+Di hari spesial ini, aku berdoa semoga Mama selalu sehat, panjang umur, dimudahkan rezeki mama always lancar so can keep sponsoring me dan selalu diberi kebahagiaan. Semoga semua doa baik Mama satu per satu terkabul dan hari-hari Mama dipenuhi hal-hal yang menyenangkan.
+
+Terima kasih sudah menjadi Mama terbaik untukku. Aku mungkin belum bisa membalas semua kebaikan Mama sekarang, tapi aku berharap suatu hari nanti aku bisa membuat Mama bangga dan bahagia, bisa ajak mama around the world, walaupun mama suka marah - marah aku sayang banget sama mama.
+
+I love u mama, Today, Tomorrow, and FOREVER. Happy Birthday, Mama! Semoga senyum Mama selalu ada. ♡</p>
+  <p class="signoff">With all my love,<br>Putri anak mama paling cantik ♡</p>
+ </div>
+</section>
+<div class="footer hidden" id="footer">MADE WITH LOVE, JUST FOR MAMA ♡</div>
+
+<script>
+const startBtn=document.getElementById("startBtn");
+const celebration=document.getElementById("celebration");
+const cake=document.getElementById("cake");
+const family=document.getElementById("family");
+const instruction=document.getElementById("instruction");
+const letterBtn=document.getElementById("letterBtn");
+const letter=document.getElementById("letter");
+const footer=document.getElementById("footer");
+let audioContext;
+
+function playHappyBirthday(){
+ try{
+  audioContext=new(window.AudioContext||window.webkitAudioContext)();
+  if(audioContext.state==="suspended") audioContext.resume();
+  // Melodi Happy Birthday dimainkan melalui nada sintetis, tanpa file audio tambahan.
+  const notes=[
+   [262,.28],[262,.18],[294,.48],[262,.48],[349,.48],[330,.85],
+   [262,.28],[262,.18],[294,.48],[262,.48],[392,.48],[349,.85],
+   [262,.28],[262,.18],[523,.48],[440,.48],[349,.48],[330,.48],[294,.8],
+   [466,.28],[466,.18],[440,.48],[349,.48],[392,.48],[349,.9]
+  ];
+  let time=audioContext.currentTime+.12;
+  notes.forEach(([frequency,duration])=>{
+   const osc=audioContext.createOscillator(),gain=audioContext.createGain();
+   osc.type="sine";osc.frequency.value=frequency;
+   gain.gain.setValueAtTime(.0001,time);
+   gain.gain.exponentialRampToValueAtTime(.11,time+.025);
+   gain.gain.setValueAtTime(.11,time+duration*.72);
+   gain.gain.exponentialRampToValueAtTime(.0001,time+duration);
+   osc.connect(gain);gain.connect(audioContext.destination);
+   osc.start(time);osc.stop(time+duration);time+=duration+.045;
+  });
+ }catch(error){instruction.textContent="Browser tidak mendukung pemutaran musik, tetapi kejutan tetap bisa dilanjutkan ♡";}
+}
+function makePetals(){
+ const layer=document.getElementById("petals");
+ if(layer.children.length)return;
+ for(let i=0;i<16;i++){
+  const p=document.createElement("span");p.className="petal";p.textContent=["✦","♡","✧"][i%3];
+  p.style.left=(Math.random()*100)+"%";
+  p.style.animationDuration=(7+Math.random()*7)+"s";
+  p.style.animationDelay=(Math.random()*-10)+"s";
+  p.style.fontSize=(10+Math.random()*12)+"px";layer.appendChild(p);
+ }
+}
+startBtn.addEventListener("click",()=>{
+ startBtn.disabled=true;
+ playHappyBirthday();
+ celebration.classList.remove("hidden");
+ makePetals();
+ celebration.scrollIntoView({behavior:"smooth"});
+ setTimeout(()=>{
+  family.classList.add("blowing");
+  instruction.textContent="Fuuuu~! Semoga semua harapan Mama terkabul ♡";
+ },3500);
+ setTimeout(()=>{
+  cake.classList.add("out");
+  family.classList.remove("blowing");
+  instruction.textContent="Yeay, lilinnya sudah padam! Sekarang baca surat kecilku ♡";
+  letterBtn.classList.remove("hidden");
+ },5200);
+});
+letterBtn.addEventListener("click",()=>{
+ letter.classList.remove("hidden");footer.classList.remove("hidden");
+ letter.scrollIntoView({behavior:"smooth"});
+});
+</script>
+</body>
+</html>
